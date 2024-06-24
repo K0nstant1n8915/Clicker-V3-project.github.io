@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker v3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Clicker v3</h1>
+        <div class="separator"></div>
+        <div class="stats">
+            <div class="coins" id="coins">Монеты: 0</div>
+            <div class="counter" id="counter">Клики: 0</div>
+        </div>
+    </div>
+    <div class="status">
+        <div id="doubleClickStatus" class="status-item not-bought">Х2 Клики: не куплены</div>
+        <div id="passiveIncomeStatus" class="status-item not-bought">Пассивный доход: не куплен</div>
+    </div>
+    <div class="container">
+        <button class="click-button" id="clickButton" onclick="incrementCounter()">Клик</button>
+        <button class="shop-button" id="shopButton" onclick="toggleShop()">Магазин</button>
+        <button class="conversion-button" id="conversionButton" onclick="toggleConversion()">Клики => Монеты</button>
+        <button class="color-purchase-button" id="colorPurchaseButton" onclick="toggleColorPurchase()">Покупка цветов</button>
+        <button class="color-selection-button" id="colorSelectionButton" onclick="toggleColorSelection()">Выбор цвета</button>
+        <div class="shop" id="shop" style="display: none;">
+            <button class="upgrade-button" onclick="buyDoubleClicks()">Купить Х2 Клики за 100 Монет</button>
+            <button class="upgrade-button" onclick="buyPassiveIncome()">Купить Пассивный Доход за 500 Монет</button>
+        </div>
+        <div class="conversion" id="conversion" style="display: none;">
+            <button class="exchange-button" onclick="exchangeClicks(50, 10)">Обменять 50 Кликов На 10 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(100, 20)">Обменять 100 Кликов На 20 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(200, 30)">Обменять 200 Кликов На 30 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(300, 40)">Обменять 300 Кликов На 40 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(400, 50)">Обменять 400 Кликов На 50 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(500, 60)">Обменять 500 Кликов На 60 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(600, 70)">Обменять 600 Кликов На 70 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(700, 80)">Обменять 700 Кликов На 80 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(800, 90)">Обменять 800 Кликов На 90 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(900, 100)">Обменять 900 Кликов На 100 Монет</button>
+            <button class="exchange-button" onclick="exchangeClicks(1000, 115)">Обменять 1000 Кликов На 115 Монет</button>
+        </div>
+        <div class="color-purchase" id="colorPurchase" style="display: none;">
+            <button class="color-button yellow" onclick="buyColor('yellow')">Купить Желтый за 5 монет</button>
+            <button class="color-button pink" onclick="buyColor('pink')">Купить Розовый за 5 монет</button>
+            <button class="color-button brown" onclick="buyColor('brown')">Купить Коричневый за 5 монет</button>
+            <button class="color-button black" onclick="buyColor('black')">Купить Черный за 5 монет</button>
+            <button class="color-button grey" onclick="buyColor('grey')">Купить Серый за 5 монет</button>
+            <button class="color-button magenta" onclick="buyColor('magenta')">Купить Пурпурный за 5 монет</button>
+            <button class="color-button purple" onclick="buyColor('purple')">Купить Фиолетовый (purple) за 5 монет</button>
+            <button class="color-button violet" onclick="buyColor('violet')">Купить Фиолетовый (violet) за 5 монет</button>
+            <button class="color-button turquoise" onclick="buyColor('turquoise')">Купить Бирюзовый (turquoise) за 5 монет</button>
+            <button class="color-button cyan" onclick="buyColor('cyan')">Купить Бирюзовый (cyan) за 5 монет</button>
+            <button class="color-button orange" onclick="buyColor('orange')">Купить Оранжевый за 5 монет</button>
+        </div>
+        <div class="color-selection" id="colorSelection" style="display: none;">
+            <button class="color-button white" onclick="selectColor('white')">Выбрать Белый</button>
+            <button class="color-button yellow" onclick="selectColor('yellow')">Выбрать Желтый</button>
+            <button class="color-button pink" onclick="selectColor('pink')">Выбрать Розовый</button>
+            <button class="color-button brown" onclick="selectColor('brown')">Выбрать Коричневый</button>
+            <button class="color-button black" onclick="selectColor('black')">Выбрать Черный</button>
+            <button class="color-button grey" onclick="selectColor('grey')">Выбрать Серый</button>
+            <button class="color-button magenta" onclick="selectColor('magenta')">Выбрать Пурпурный</button>
+            <button class="color-button purple" onclick="selectColor('purple')">Выбрать Фиолетовый (purple)</button>
+            <button class="color-button violet" onclick="selectColor('violet')">Выбрать Фиолетовый (violet)</button>
+            <button class="color-button turquoise" onclick="selectColor('turquoise')">Выбрать Бирюзовый (turquoise)</button>
+            <button class="color-button cyan" onclick="selectColor('cyan')">Выбрать Бирюзовый (cyan)</button>
+            <button class="color-button orange" onclick="selectColor('orange')">Выбрать Оранжевый</button>
+        </div>
+    </div>
+    <div class="timer" id="passiveIncomeTimer">Время до следующей выплаты пассивного дохода: --</div>
+    <script src="script.js"></script>
+</body>
+</html>

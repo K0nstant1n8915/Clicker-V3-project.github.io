@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    margin: 0;
+    display: inline;
+}
+
+.separator {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    margin: 10px 0;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.coins, .counter {
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+.status {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.status-item {
+    font-size: 1em;
+    margin: 5px 10px;
+}
+
+.not-bought {
+    color: red;
+}
+
+.bought {
+    color: green;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 100px; /* to ensure content below the fixed header */
+    text-align: center;
+}
+
+.click-button, .shop-button, .conversion-button, .exchange-button, .upgrade-button, .color-purchase-button, .color-selection-button, .color-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.click-button {
+    background-color: white;
+    color: black;
+}
+
+.shop-button, .conversion-button, .color-purchase-button, .color-selection-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.shop, .conversion, .color-purchase, .color-selection {
+    display: none;
+    margin-top: 20px;
+}
+
+.timer {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    background-color: black;
+    color: yellow;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.color-button.white {
+    background-color: white;
+    color: black;
+}
+
+.color-button.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.color-button.pink {
+    background-color: pink;
+    color: black;
+}
+
+.color-button.brown {
+    background-color: brown;
+    color: white;
+}
+
+.color-button.black {
+    background-color: black;
+    color: white;
+}
+
+.color-button.grey {
+    background-color: grey;
+    color: black;
+}
+
+.color-button.magenta {
+    background-color: magenta;
+    color: white;
+}
+
+.color-button.purple {
+    background-color: purple;
+    color: white;
+}
+
+.color-button.violet {
+    background-color: violet;
+    color: white;
+}
+
+.color-button.turquoise {
+    background-color: turquoise;
+    color: white;
+}
+
+.color-button.cyan {
+    background-color: cyan;
+    color: black;
+}
+
+.color-button.orange {
+    background-color: orange;
+    color: black;
+}
